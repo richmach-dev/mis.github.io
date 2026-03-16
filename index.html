@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeonTech Store</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===== BODY ===== */
+body{
+    background: radial-gradient(circle at top,#0b0f1a,#05070c);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== NAVBAR ===== */
+header{
+    position:sticky;
+    top:0;
+    backdrop-filter: blur(12px);
+    background: rgba(10,15,25,0.6);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:600;
+    color:#00d4ff;
+    letter-spacing:1px;
+}
+
+nav a{
+    color:#ccc;
+    text-decoration:none;
+    margin-left:28px;
+    transition:.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#00d4ff;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* ===== HERO ===== */
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.2;
+    background:linear-gradient(90deg,#00d4ff,#7b61ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    margin-top:20px;
+    color:#aab3c5;
+}
+
+.hero button{
+    margin-top:30px;
+    padding:14px 32px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#00d4ff,#7b61ff);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    font-size:15px;
+}
+
+.hero button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px rgba(0,212,255,0.6);
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:40px;
+}
+
+/* ===== PRODUCTS ===== */
+.products{
+    padding:80px 60px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:rgba(255,255,255,0.05);
+    border-radius:18px;
+    padding:20px;
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(0,212,255,0.2),transparent);
+    opacity:0;
+    transition:.4s;
+}
+
+.card:hover::before{
+    opacity:1;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px rgba(0,212,255,0.25);
+}
+
+.card img{
+    width:100%;
+    height: 400px;
+    border-radius:12px;
+}
+
+.card h3{
+    margin-top:15px;
+}
+
+.price{
+    color:#00d4ff;
+    margin-top:5px;
+    font-weight:600;
+}
+
+.card button{
+    margin-top:15px;
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#111827;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card button:hover{
+    background:#00d4ff;
+    color:black;
+}
+
+/* ===== FEATURE SECTION ===== */
+.features{
+    padding:80px 60px;
+    text-align:center;
+}
+
+.feature-boxes{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-top:30px;
+}
+
+.feature{
+    background:rgba(255,255,255,0.04);
+    padding:25px;
+    width:260px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 15px rgba(123,97,255,0.3);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#888;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">NeonTech</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Future Gadgets. Today.</h1>
+        <p>Explore premium electronics designed for performance, style, and innovation.</p>
+        <button>Explore Store</button>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+    <h2 class="section-title">Trending Products</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="rgb.jpg">
+            <h3>RGB Gaming Headset</h3>
+            <p class="price">₱2,499</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="watchh.avif">
+            <h3>Smartwatch Ultra</h3>
+            <p class="price">₱4,299</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="earbuds.avif">
+            <h3>Wireless Earbuds</h3>
+            <p class="price">₱1,899</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="bTO6F4J.jpeg">
+            <h3>Mechanical Keyboard</h3>
+            <p class="price">₱3,199</p>
+            <button>Add to Cart</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <h2 class="section-title">Why Shop With Us</h2>
+
+    <div class="feature-boxes">
+        <div class="feature">
+            <h3>⚡ Fast Delivery</h3>
+            <p>Quick nationwide shipping with real-time tracking.</p>
+        </div>
+
+        <div class="feature">
+            <h3>🔒 Secure Payment</h3>
+            <p>Protected transactions and trusted payment gateways.</p>
+        </div>
+
+        <div class="feature">
+            <h3>⭐ Quality Products</h3>
+            <p>Only verified and high-quality electronic gadgets.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 NeonTech Electronics Store</p>
+</footer>
+
+</body>
+</html>
